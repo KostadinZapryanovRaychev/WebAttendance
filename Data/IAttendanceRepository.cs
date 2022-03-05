@@ -6,7 +6,7 @@ using WebAttendance.Models;
 
 namespace WebAttendance.Data
 {
-    interface IAttendanceRepository
+    public interface IAttendanceRepository
     {
         Task<string> AddAttendance(Attendance attendance);
 

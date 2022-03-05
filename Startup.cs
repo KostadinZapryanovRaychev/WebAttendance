@@ -19,6 +19,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebAttendance.Areas.Identity.Data;
 using WebAttendance.Data.Models;
+using WebAttendance.Data;
 
 namespace WebAttendance
 {
@@ -36,11 +37,11 @@ namespace WebAttendance
         {
             string connectionString = Configuration.GetConnectionString("Connections");
 
-            //services.AddScoped<IAttendanceRepository, AttendanceRepository>();
-            //services.AddScoped<IDisciplineRepository, DisciplineRepository>();
-            //services.AddScoped<ISemesterRepository, SemesterRepository>();
-            //services.AddScoped<INWDRepository, NWDRepository>();
-            //services.AddScoped<IDegreeRepository, DegreeRepository>();
+            services.AddScoped<IAttendanceRepository, AttendanceRepository>();
+            services.AddScoped<IProgramsRepository, ProgramsRepository>();
+            services.AddScoped<ISemesterRepository, SemesterRepository>();
+            services.AddScoped<INWDRepository, NWDRepository>();
+            services.AddScoped<IDegreeRepository, DegreeRepository>();
 
             services.AddIdentity<ApplicationUser, ApplicationUserRole>(options =>
             {

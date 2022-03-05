@@ -6,7 +6,7 @@ using WebAttendance.Models;
 
 namespace WebAttendance.Data
 {
-    interface ISemesterRepository
+    public interface ISemesterRepository
     {
         Task<string> AddSemester(Semester semester);
 

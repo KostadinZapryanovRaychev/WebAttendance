@@ -6,7 +6,7 @@ using WebAttendance.Models;
 
 namespace WebAttendance.Data
 {
-    interface IDegreeRepository
+    public interface IDegreeRepository
     {
         Task<string> AddDegrees(Degrees degrees);
 

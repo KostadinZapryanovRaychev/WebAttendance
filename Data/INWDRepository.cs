@@ -6,7 +6,7 @@ using WebAttendance.Models;
 
 namespace WebAttendance.Data
 {
-    interface INWDRepository
+    public interface INWDRepository
     {
         void Save();
         IEnumerable<NonWorkingDays> GetAllAvailableNWD();

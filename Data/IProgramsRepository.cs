@@ -6,7 +6,7 @@ using WebAttendance.Models;
 
 namespace WebAttendance.Data
 {
-    interface IProgramsRepository
+    public interface IProgramsRepository
     {
         void Save();
 
