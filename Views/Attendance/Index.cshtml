@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WebAttendance.Models.Semester>
+@using Microsoft.AspNetCore.Identity
+@using WebAttendance.Data.Models
+@using WebAttendance.Areas.Identity.Data
+
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<div class="panel panel-body">
+    <div class="col-md-6">
+
+        @*@{ var user = await UserManager.GetUserAsync(User);}*@
+
+        @if (SignInManager.IsSignedIn(User))
+        {
+            var user = await UserManager.GetUserAsync(User);
+
+            <h1>Здравейте @user.OfficialName</h1>
+            <a class="btn btn-primary" asp-action="LoggedUser" asp-controller="Attendance" role="button">Попълнете присъствената форма</a>
+
+        }
+
+        else
+        {
+            <h1>Вход</h1>
+        }
+    </div>
+</div>
+
+
+@*onchange="javascript:this.form.submit()"*@
+
+
+
+
+
+
+
+

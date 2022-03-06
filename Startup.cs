@@ -46,9 +46,8 @@ namespace WebAttendance
             services.AddIdentity<ApplicationUser, ApplicationUserRole>(options =>
             {
                 options.User.RequireUniqueEmail = true;
-                // Identity frameworkStores relatva IdentityDbContexta i Identityto kato cqlo sus nashiq DbContext i nie tochno s tva pokazvame kade da se sahranqva tova Identity <MusicStoreDbContext>
             }).AddEntityFrameworkStores<WebAttendanceDbContext>()
-            .AddDefaultUI(); //Това ми трябва за правилното пренасочване към login/register page
+            .AddDefaultUI();
 
 
             //services.AddScoped<UserManagerExt>();

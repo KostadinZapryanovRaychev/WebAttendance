@@ -1,0 +1,57 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using WebAttendance.Areas.Identity.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<div id="sidebar-wrapper">
+    @if (User.IsInRole("Admin"))
+    {
+
+        <ul class="sidebar-nav">
+            <li><a id="manage" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Профил </a></li>
+            @{ var user = await UserManager.GetUserAsync(User);}
+            <li><a asp-area="" asp-controller="Discipline" asp-action="Index">Специалности</a></li>
+            <li><a asp-area="" asp-controller="Semester" asp-action="Index">Семестри </a></li>
+            <li><a asp-area="" asp-controller="NonWorkingDays" asp-action="Index">Неучебни дни</a></li>
+            <li><a asp-area="" asp-controller="Degree" asp-action="Index">Образ. степени </a></li>
+            <li> <a asp-action="Index" asp-controller="Home">Присъствена форма</a></li>
+        </ul>
+
+    }
+
+    else if (SignInManager.IsSignedIn(User))
+    {
+      
+        var user = await UserManager.GetUserAsync(User);
+        <ul class="sidebar-nav">
+            <li><a id="manage" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Профил </a></li>
+        </ul>
+    }
+    else
+    {
+
+    }
+
+</div>
+
+@section Scripts {
+
+    <script>
+        function openSideNav() {
+            var sideBarDisplay = document.getElementById("side-bar").style.width;
+            if (sideBarDisplay == "150px") {
+                document.getElementById("side-bar").style.width = "0px";
+                document.getElementById("body-content").style.marginLeft = "0px";
+            } else {
+                document.getElementById("side-bar").style.width = "150px";
+                document.getElementById("body-content").style.marginLeft = "150px";
+            }
+        }
+
+    </script>
+}
+
+
+
+

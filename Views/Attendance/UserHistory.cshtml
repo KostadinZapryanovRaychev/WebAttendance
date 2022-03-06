@@ -1,0 +1,131 @@
+﻿@{
+    Layout = null;
+}
+
+@model IEnumerable<WebAttendance.Models.Attendance>
+@using Microsoft.AspNetCore.Identity
+@using WebAttendance.Data.Models
+@using WebAttendance.Areas.Identity.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+
+<style>
+
+    .btn {
+        display: inline-block;
+        color: #444;
+        border: 1px solid #CCC;
+        background: #DDD;
+        box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+        cursor: pointer;
+        vertical-align: middle;
+        max-width: 100px;
+        padding: 5px;
+        text-align: center;
+    }
+
+    table {
+        font-family: Arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    @@media print {
+        #printPageButton {
+            display: none;
+        }
+    }
+
+    @@media print {
+        #printPageButton1 {
+            display: none;
+        }
+    }
+
+    @@media print {
+        #printPageButton2 {
+            display: none;
+        }
+    }
+</style>
+
+
+
+<div class=" container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <div asp-validation-summary="All"> </div>
+        </div>
+    </div>
+
+    <br />
+
+    @{ var user = await UserManager.GetUserAsync(User);}
+
+    <h1>@user.OfficialName</h1>
+
+    <br />
+    <p> <div>@TempData["semesterName"]</div></p>
+
+    @if (Model.Count() > 0)
+    {
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>Степен</th>
+                    <th>Вид</th>
+                    <th>Курс</th>
+                    <th>Група</th>
+                    <th>Час.Диапазон</th>
+                    <th>Тип</th>
+                    <th>Часове</th>
+                    <th>Зала</th>
+                    <th>Забележка</th>
+                    <th>Предмет</th>
+                    <th>Специалност</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var attendance in Model)
+                {
+                    <tr class="tableRows">
+                        <td width="8%">@attendance.Date</td>
+                        <td width="8%">@attendance.Degree</td>
+                        <td width="8%">@attendance.Mode</td>
+                        <td width="4%">@attendance.Course</td>
+                        <td width="4%">@attendance.Groupe</td>
+                        <td width="8%">@attendance.Timeframe</td>
+                        <td width="8%">@attendance.Type</td>
+                        <td width="4%">@attendance.Hours</td>
+                        <td width="8%">@attendance.Auditorium</td>
+                        <td width="8%">@attendance.Note</td>
+                        <td width="8%">@attendance.Subjects</td>
+                        <td width="12%">@attendance.Programs</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    }
+    else
+    {
+        <p> </p>
+    }
+    <form>
+        <input class='btn' id="printPageButton" type="button" value="Принтиране"
+               onclick="window.print()" />
+    </form>
+
+    <div class='btn' id="printPageButton2"><a type="button" a asp-controller="Attendance" asp-action="LoggedUser">Назад </a></div>
+</div>
