@@ -29,18 +29,12 @@ namespace WebAttendance.Controllers
             Repo = repo;
         }
 
-        //[Authorize]
-        //public IActionResult Index(string value)
-        //{
-        //    ViewBag.semNames = new SelectList(GetAllSemesterDisplay(), "Id", "Name");
-        //   
-        //    TempData["name"] = value;
-
-        //    return View();
-        //}
-
-        public IActionResult Index()
+        [Authorize]
+        public IActionResult Index(string value)
         {
+            ViewBag.semNames = new SelectList(GetAllSemesterDisplay(), "Id", "Name");
+            TempData["name"] = value;
+
             return View();
         }
 

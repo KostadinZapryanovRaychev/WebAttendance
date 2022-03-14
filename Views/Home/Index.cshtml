@@ -1,8 +1,64 @@
-﻿@{
+﻿@model IEnumerable<WebAttendance.Models.Semester>
+@using Microsoft.AspNetCore.Identity
+@using WebAttendance.Data.Models
+@using WebAttendance.Areas.Identity.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+
+    <h2 class="display-4">Изберете семестър</h2>
+    <div class="col-3">
+        <form id="ad_form" action="/Attendance/WriteCokie" method="post" onchange="javascript:this.form.submit()">
+
+            <select class="form-control" name="SemesterId" id="ProgramsList" asp-items="@ViewBag.semNames">
+                <option selected disabled>Изберете семестър</option>
+            </select>
+            <input class="btn btn-primary" type="submit" value="Попълнете присъствие" name="Попълнете присъствие" id="submitorder" />
+
+            <input style="display:none" name="semName" type="text" id="selectedSemester" value=""/>
+        </form>
+    </div>
+    <br />
+}
+
+        @section Scripts {
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+            <script>
+
+
+                $(function () {
+                    $("#submitorder").css("visibility", "hidden");
+
+                    $("#ad_form select").bind("change", function () {
+                        if ($("#ProgramsList").val().length > 0) {
+                            $("#submitorder").css("visibility", "visible");
+                        } else {
+                            $("#submitorder").css("visibility", "hidden");
+                        }
+                    });
+                });
+
+
+
+                var select = document.getElementsByTagName('select')[0];
+                var input = document.getElementById('selectedSemester');
+                select.onchange = function () {
+                    input.value = select.options[select.selectedIndex].text;
+                }
+
+            </script>
+
+        }
+
+
+
+
+

@@ -11,5 +11,7 @@ namespace WebAttendance.Areas.Identity.Data
     {
         public string OfficialName { get; set; }
         public string Description { get; set; }
+
+        //public string AcademicTitleAndDegree { get; set; }
     }
 }

@@ -214,6 +214,20 @@ namespace WebAttendance.Migrations
                     b.ToTable("AspNetRoles");
                 });
 
+            modelBuilder.Entity("WebAttendance.Models.AllowedPersonsToRegister", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AllowedPersonsToRegisters");
+                });
+
             modelBuilder.Entity("WebAttendance.Models.Attendance", b =>
                 {
                     b.Property<int>("Id")

@@ -31,5 +31,6 @@ namespace WebAttendance.Areas.Identity.Data
         public DbSet<NonWorkingDays> NonWorkingDays { get; set; }
         public DbSet<Degrees> Degrees { get; set; }
         public DbSet<Semester> Semesters { get; set; }
+        public DbSet<AllowedPersonsToRegister> AllowedPersonsToRegisters { get; set; }
     }
 }

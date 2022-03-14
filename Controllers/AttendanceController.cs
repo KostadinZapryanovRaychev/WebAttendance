@@ -234,14 +234,15 @@ namespace WebAttendance.Controllers
             var semester = Repo.SemesterEndDateById(attendance.SemesterId);
 
 
-            for (int i = 0; i <= length; i++)
+            for (int i = 0; i < length; i++)
             {
                 var newAttendanceDate = attendance.Date.AddDays(1);
                 if (newAttendanceDate < semester)
                 {
                     Repo.Detached(attendance);
                     attendance.Date = newAttendanceDate;
-                    await Repo.AddAttendanceWithoutHolidays(attendance);
+                    //await Repo.AddAttendanceWithoutHolidays(attendance);
+                    await Repo.AddAttendance(attendance);
 
                 }
             }

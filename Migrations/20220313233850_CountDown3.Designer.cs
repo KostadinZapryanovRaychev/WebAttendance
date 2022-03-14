@@ -9,8 +9,8 @@ using WebAttendance.Areas.Identity.Data;
 namespace WebAttendance.Migrations
 {
     [DbContext(typeof(WebAttendanceDbContext))]
-    [Migration("20220223160459_SecondMigration")]
-    partial class SecondMigration
+    [Migration("20220313233850_CountDown3")]
+    partial class CountDown3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -214,6 +214,20 @@ namespace WebAttendance.Migrations
                         .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles");
+                });
+
+            modelBuilder.Entity("WebAttendance.Models.AllowedPersonsToRegister", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AllowedPersonsToRegisters");
                 });
 
             modelBuilder.Entity("WebAttendance.Models.Attendance", b =>

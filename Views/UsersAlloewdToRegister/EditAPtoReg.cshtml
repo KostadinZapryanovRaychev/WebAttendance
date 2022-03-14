@@ -1,10 +1,10 @@
-﻿@model WebAttendance.Models.ViewModels.ProgramsViewModel
+﻿@model WebAttendance.Models.ViewModels.AllowedPersonsToRegisterViewModel
 
-<h1>Редакция на специалност </h1>
+<h1>Три имена</h1>
 
 <div asp-validation-summary="All">   </div>
-<form method="post" asp-controller="Programs" asp-action="EditProgram">
-    <input type="hidden" asp-for="@Model.Programs.Id" />
+<form method="post" asp-controller="UsersAlloewdToRegister" asp-action="EditAPtoReg">
+    <input type="hidden" asp-for="@Model.AllowedPersonsToRegister.Id" />
     <div class="border p-3">
         <div class="form-group row">
             <h2>Моля редактирайте</h2>
@@ -13,14 +13,8 @@
             <div class="col-12">
                 <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="@Model.Programs.Name"></label>
-                        <input asp-for="@Model.Programs.Name" class="form-control" />
-                    </div>
-                    <div class="col-4">
-                        <label asp-for="@Model.Programs.DegreesId"></label>
-                        <select id="ProgramsList" asp-for="@Model.Programs.DegreesId" asp-items="@ViewBag.degreesNames" class="form-control">
-                            
-                        </select>
+                        <label asp-for="@Model.AllowedPersonsToRegister.Name"></label>
+                        <input asp-for="@Model.AllowedPersonsToRegister.Name" class="form-control" />
                     </div>
                     <p> </p>
                     <div class="form-group row">

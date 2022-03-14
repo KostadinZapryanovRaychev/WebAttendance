@@ -10,8 +10,6 @@
 <div class="panel panel-body">
     <div class="col-md-6">
 
-        @*@{ var user = await UserManager.GetUserAsync(User);}*@
-
         @if (SignInManager.IsSignedIn(User))
         {
             var user = await UserManager.GetUserAsync(User);
