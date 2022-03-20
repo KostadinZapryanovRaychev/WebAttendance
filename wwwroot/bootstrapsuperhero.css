@@ -64,7 +64,7 @@
 }
 /* Sidebar */
 .sidebar-layout {
-    padding-left: 150px;
+    padding-left: 220px;
 }
 
 .sidebar-body-content {
@@ -75,10 +75,10 @@
 .sidebar-aside-content {
     z-index: 1000;
     position: fixed;
-    left: 150px;
+    left: 220px;
     width: 220px;
     height: 100%;
-    margin-left: -150px;
+    margin-left: -220px;
     overflow-y: auto;
     background: #222222;
 }
