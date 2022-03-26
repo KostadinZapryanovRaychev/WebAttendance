@@ -64,6 +64,7 @@
 }
 /* Sidebar */
 .sidebar-layout {
+    /*the width - important element style*/
     padding-left: 220px;
 }
 
@@ -75,9 +76,12 @@
 .sidebar-aside-content {
     z-index: 1000;
     position: fixed;
+    /*the width - important element style*/
     left: 220px;
     width: 220px;
+    /*the width - important element style*/
     height: 100%;
+    /*the width - important element style*/
     margin-left: -220px;
     overflow-y: auto;
     background: #222222;
@@ -86,7 +90,8 @@
 .sidebar-nav {
     position: absolute;
     top: 0;
- /*   width: 150px;*/
+     /*the width - important element style*/
+    width: 180px;
     margin: 0;
     padding: 0;
     list-style: none;

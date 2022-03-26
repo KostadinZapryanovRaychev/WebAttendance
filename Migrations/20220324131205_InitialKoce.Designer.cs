@@ -9,8 +9,8 @@ using WebAttendance.Areas.Identity.Data;
 namespace WebAttendance.Migrations
 {
     [DbContext(typeof(WebAttendanceDbContext))]
-    [Migration("20220313233850_CountDown3")]
-    partial class CountDown3
+    [Migration("20220324131205_InitialKoce")]
+    partial class InitialKoce
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

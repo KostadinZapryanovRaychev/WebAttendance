@@ -282,7 +282,7 @@ namespace WebAttendance.Controllers
             {
                 var semesterEndDate = Repo.SemesterEndDateById(attendance.SemesterId);
 
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 15; i++)
                 {
                     var newAttendanceDate = attendance.Date.AddDays(7);
                     if (newAttendanceDate < semesterEndDate)

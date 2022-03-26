@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebAttendance.Migrations
 {
-    public partial class CountDown3 : Migration
+    public partial class InitialKoce : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

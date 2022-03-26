@@ -2,14 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script nomodule>window.MSInputMethodContext && document.documentMode && document.write('<link rel="stylesheet" href="/css/bootstrap-ie11.min.css"><script src="https://cdn.jsdelivr.net/combine/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js,npm/ie11-custom-properties@4,npm/element-qsa-scope@1"><\/script><script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=default%2CNumber.parseInt%2CNumber.parseFloat%2CArray.prototype.find%2CArray.prototype.includes"><\/script>');</script>
     <title>@ViewData["Title"] - WebAttendance</title>
-    <link rel="stylesheet" href="~/bootstrapsuperhero.css" />
+    <link rel="stylesheet" href="~/bootstrapsuperhero1.css" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <header>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -23,10 +26,14 @@
         </nav>
     </header>
 
+
+
     <div class="sidebar-layout">
         <div class="sidebar-aside-content">
             <partial name="_MyPartialLayout" />
         </div>
+
+
         <div class="container body-content sidebar-body-content">
             @RenderBody()
             <hr />
@@ -34,7 +41,9 @@
                 <p>&copy; @DateTime.Now.Year - All Rights Reserved</p>
             </footer>
         </div>
+
     </div>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
