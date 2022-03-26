@@ -18,11 +18,11 @@
                     </div>
                     <div class="col-3">
                         <label asp-for="@Model.Semester.startDate"></label>
-                        <input asp-for="@Model.Semester.startDate" class="form-control" />
+                        <input id="datepicker7" asp-for="@Model.Semester.startDate" class="form-control" />
                     </div>
                     <div class="col-3">
                         <label asp-for="@Model.Semester.endDate"></label>
-                        <input asp-for="@Model.Semester.endDate" class="form-control" />
+                        <input id="datepicker8" asp-for="@Model.Semester.endDate" class="form-control" />
                     </div>
                     <p> </p>
                     <div class="form-group row">
@@ -41,4 +41,16 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $('input[type="datetime-local"]').attr('type', 'text');
+
+        $(function () {
+            $("#datepicker7").datepicker();
+        });
+
+        $(function () {
+            $("#datepicker8").datepicker();
+        });
+    </script>
 }
