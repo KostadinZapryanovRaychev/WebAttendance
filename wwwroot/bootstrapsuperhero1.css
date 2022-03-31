@@ -84,26 +84,27 @@ input[type=date]::-webkit-outer-spin-button {
 
 .sidebar-aside-content {
     z-index: 1000;
-    position: fixed;
-    /*the width - important element style*/
-    left: 220px;
+    position: relative;* / 
+    /*/*the width - important element style*/
+    right: 220px;
     width: 220px;
     /*the width - important element style*/
     height: 100%;
     /*the width - important element style*/
     margin-left: -220px;
-    overflow-y: auto;
+    /*overflow-y: auto;*/
     background: #222222;
 }
 
 .sidebar-nav {
     position: absolute;
     top: 0;
-     /*the width - important element style*/
+    /*the width - important element style*/
     width: 180px;
     margin: 0;
     padding: 0;
     list-style: none;
+    background-color: #222222; 
 }
 
     .sidebar-nav li {
@@ -2023,6 +2024,7 @@ progress {
   --bs-table-hover-color: #ebebeb;
   --bs-table-hover-bg: rgba(255, 255, 255, 0.075);
   width: 100%;
+  
   margin-bottom: 1rem;
   color: #ebebeb;
   vertical-align: top;
