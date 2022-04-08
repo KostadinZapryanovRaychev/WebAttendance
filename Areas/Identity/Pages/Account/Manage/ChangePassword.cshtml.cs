@@ -38,18 +38,18 @@ namespace WebAttendance.Areas.Identity.Pages.Account.Manage
         {
             [Required]
             [DataType(DataType.Password)]
-            [Display(Name = "Настояща парола")]
+            [Display(Name = "Current Password")]
             public string OldPassword { get; set; }
 
             [Required]
-            [StringLength(100, ErrorMessage = "{0} трябва да е най-малко {2} но не повече от {1} символа дълга.", MinimumLength = 6)]
+            [StringLength(100, ErrorMessage = "{0} should be at least {2} but not exceeding {1} charecters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Нова парола")]
+            [Display(Name = "New Password")]
             public string NewPassword { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "Потвърждаване на паролата")]
-            [Compare("NewPassword", ErrorMessage = "Новата паролата и потвърдената не съвпадат")]
+            [Display(Name = "Confirm new Password")]
+            [Compare("NewPassword", ErrorMessage = "New Password and Confirmed Password do not match")]
             public string ConfirmPassword { get; set; }
         }
 

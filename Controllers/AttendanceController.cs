@@ -236,7 +236,7 @@ namespace WebAttendance.Controllers
 
             for (int i = 0; i < length; i++)
             {
-                var newAttendanceDate = attendance.Date.AddDays(1);
+                var newAttendanceDate = attendance.Date.AddDays(0);
                 if (newAttendanceDate < semester)
                 {
                     Repo.Detached(attendance);

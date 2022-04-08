@@ -56,21 +56,21 @@ namespace WebAttendance.Areas.Identity.Pages.Account
             public string Email { get; set; }
 
             [Required]
-            [StringLength(100, ErrorMessage = " {0} трябва да е най-малко {2} и най-много {1} букви.", MinimumLength = 6)]
+            [StringLength(100, ErrorMessage = " {0} too short {2} should be at least {1} characters.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Парола")]
+            [Display(Name = "Password")]
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "Потвърджаване на парола")]
-            [Compare("Password", ErrorMessage = "Паролата и потвърдената парола не съвпадат.")]
+            [Display(Name = "Confirm Password")]
+            [Compare("Password", ErrorMessage = "Password and Confirmed Password don't match")]
             public string ConfirmPassword { get; set; }
 
 
-            [Display(Name = "Име, Презиме, Фамилия")]
+            [Display(Name = "Names")]
             public string OfficialName { get; set; }
 
-            [Display(Name = "Академична длъжност и степен")]
+            [Display(Name = "Academic degree")]
             public string Description { get; set; }
         }
 

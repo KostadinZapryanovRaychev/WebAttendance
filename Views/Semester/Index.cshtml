@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<WebAttendance.Models.Semester>
-
+    
     <h1> Семестри </h1>
     <div class=" container p-3">
         <div class="row pt-4">
                 <div asp-validation-summary="All"></div>
         </div>
-
+        
         <div class="input-group">
             <div class="col-4 text-right">  <a asp-area="" asp-controller="Semester" asp-action="CreateSemester" class="btn btn-primary">Въвеждане на семестър </a> </div>
             <div class="form-outline">
@@ -36,8 +36,8 @@
                     {
                         <tr class="tableRows">
                             <td width="30%">@semester.Name</td>
-                            <td width="30%">@semester.startDate</td>
-                            <td width="30%">@semester.endDate</td>
+                            <td width="30%">@semester.startDate.ToShortDateString()</td>
+                            <td width="30%">@semester.endDate.ToShortDateString()</td>
                             <td><a class="btn btn-primary" asp-action="EditSemester" asp-controller="Semester" asp-route-SemesterId="@semester.Id" role="button">Редакция</a></td>
                             <td><button class="btn btn-danger deleteSemester" onclick="confirmAction()" value="@semester.Id" role="button">Изтриване</button></td>
                         </tr>

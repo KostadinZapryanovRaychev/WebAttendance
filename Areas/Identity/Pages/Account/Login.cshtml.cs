@@ -46,12 +46,12 @@ namespace WebAttendance.Areas.Identity.Pages.Account
         {
             [Required]
             [EmailAddress]
-            [Display(Name = "Майл")]
+            [Display(Name = "Email")]
             public string Email { get; set; }
 
             [Required]
             [DataType(DataType.Password)]
-            [Display(Name = "Парола")]
+            [Display(Name = "Password")]
             public string Password { get; set; }
 
             [Display(Name = "Запомни ме?")]
