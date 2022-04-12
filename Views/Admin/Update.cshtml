@@ -1,0 +1,24 @@
+﻿@model WebAttendance.Areas.Identity.Data.ApplicationUser
+
+<h1 class="bg-info text-white">Редакция</h1>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="Update" method="post">
+    <div class="form-group">
+        <label asp-for="Email">Мейл</label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="OfficialName">Имена</label>
+        <input asp-for="OfficialName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description">Акад.степен</label>
+        <input asp-for="Description" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Запази</button>
+    <div class="col-2">
+        <a asp-action="Index" class="btn btn-danger w-75">Назад</a>
+    </div>
+</form>

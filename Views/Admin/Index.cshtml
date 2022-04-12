@@ -1,0 +1,106 @@
+﻿@model IEnumerable<WebAttendance.Areas.Identity.Data.ApplicationUser>
+
+<h1 class="bg-info text-white">Всички потребители</h1>
+
+<table class="table table-sm table-bordered">
+    <tr><th>ID</th><th>Потребителско име</th><th>Мейл</th><th>Имена</th><th>Акад.степен</th><th>Редакция</th><th>Изтриване</th></tr>
+    @foreach (var user in Model)
+    {
+<tr>
+    <td>@user.Id</td>
+    <td>@user.UserName</td>
+    <td>@user.Email</td>
+    <td>@user.OfficialName</td>
+    <td>@user.Description</td>
+    <td>
+        <a class="btn btn-sm btn-primary" asp-action="Update" asp-route-id="@user.Id">
+            Редакция
+        </a>
+    </td>
+    <td>
+        <form asp-action="Delete" asp-route-id="@user.Id" method="post">
+            <button type="submit" onclick="confirmAction()" class="btn btn-sm btn-danger deleteUser">
+                Изтриване
+            </button>
+        </form>
+    </td>
+    <td><button class="btn btn-danger deleteUser" onclick="confirmAction()" value="@user.Id" role="button">Изтриване</button></td>
+</tr>
+    }
+</table>
+
+
+<div id="deleteMessageModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        Modal content
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Server Message</h4>
+            </div>
+            <div class="modal-body">
+                <p id="message"> </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+
+    <script>
+        function confirmAction() {
+        }
+
+        $(document).ready(function () {
+            $(".deleteUser").on("click", function (e) {
+
+                e.preventDefault();
+
+                let confirmAction = confirm("Потвърджавате ли изтриването?");
+                if (!confirmAction) {
+                    alert("Изтриването отменено");
+                    return
+                }
+                alert("Действието е извършено успешно");
+
+
+                var userId = $(this).val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/Admin/Delete',
+                    data: { Id: userId },
+                    success: function (data) {
+                        $("#message").html(data);
+                        $("#deleteMessageModal").modal("show");
+                    }
+
+                });
+
+            });
+
+            $("#deleteMessageModal").on("hidden.bs.modal", function () {
+                location.reload();
+            });
+
+            $("#searchTextId").on("keyup", function () {
+                var searchTextId = $(this).val();
+                if (searchTextId != undefined && searchTextId != "") {
+                    console.log(searchTextId);
+                    $(".tableRows").hide();
+                    $("td:contains(" + searchTextId + ")").parent().show();
+
+                }
+                else {
+                    $(".tableRows").show();
+                }
+            });
+        });
+
+    </script>
+}
