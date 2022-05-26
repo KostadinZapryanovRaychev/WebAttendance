@@ -17,13 +17,6 @@
             Редакция
         </a>
     </td>
-    @*<td>
-        <form asp-action="Delete" asp-route-id="@user.Id" method="post">
-            <button type="submit" onclick="confirmAction()" class="btn btn-sm btn-danger deleteUser">
-                Изтриване
-            </button>
-        </form>
-    </td>*@
     <td><button class="btn btn-sm btn-danger deleteUser" onclick="confirmAction()" value="@user.Id" role="button">Изтриване</button></td>
 </tr>
     }

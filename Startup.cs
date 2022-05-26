@@ -50,13 +50,8 @@ namespace WebAttendance
             }).AddEntityFrameworkStores<WebAttendanceDbContext>()
             .AddDefaultUI();
 
-
-            //services.AddScoped<UserManagerExt>();
-
             services.AddDbContext<WebAttendanceDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
             services.AddControllersWithViews();
-
-
 
             services.AddHttpClient();
             services.AddRazorPages();
