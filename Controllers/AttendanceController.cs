@@ -106,14 +106,11 @@ namespace WebAttendance.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateAttendance(AttendanceViewModel attendanceViewModel)
         {
-            
-            
+                        
             ViewBag.degreesNames = new SelectList(GetAllDegrees(), "Id", "Name");
             ViewBag.semNames = new SelectList(GetAllSemesterDisplay(), "Id", "Name");
             attendanceViewModel.Attendance.Degree = GetAllDegrees().Where(x => x.Id == attendanceViewModel.DegreeId).Select(x => x.Name).FirstOrDefault();
-
-
-             
+ 
             if (ModelState.IsValid)
             {
 
@@ -126,7 +123,6 @@ namespace WebAttendance.Controllers
                 return RedirectToAction("LoggedUser");
             }
             return RedirectToAction("LoggedUser");
-
         }
 
 

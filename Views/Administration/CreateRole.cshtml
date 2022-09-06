@@ -1,0 +1,16 @@
+﻿@model WebAttendance.Models.ViewModels.CreateRoleViewModel
+
+    <h1>  Създай роля  </h1>
+
+    <div asp-validation-summary="All">   </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post" asp-controller="Administration" asp-action="CreateRole">
+                <div class="form-group">
+                    <label asp-for="Name"> </label>
+                    <input asp-for="Name" />
+                </div>
+                <input type="submit" class="btn btn-info w-75" value="Запис" />
+            </form>
+        </div>
+    </div>

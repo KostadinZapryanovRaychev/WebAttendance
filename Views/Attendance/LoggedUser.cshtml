@@ -34,14 +34,17 @@
 
         <div class="col-2">
             <form action="/Attendance/LoggedUser" method="get">
-                <select id="selectedMode" class="form-control" name="Mode" onchange="javascript:this.form.submit()">
-                    <option selected disabled value="">Филтриране по форма на обучение</option>
-                    <option value="редовно">редовно</option>
-                    <option value="задочно">задочно</option>
-                    <option value="">всички</option>
-                </select>
-            </form>
+              
+                    <select id="selectedMode" class="form-control" name="Mode" onchange="javascript:this.form.submit()">
+                        <option selected disabled value="">филтър</option>
+                        <option value="редовно">редовно</option>
+                        <option value="задочно">задочно</option>
+                        <option value="">всички</option>
+                    </select>         
+             </form>
+            
         </div>
+        @*<div> Filter </div>*@
     </div>
 
     @{TempData.Keep("semesterName"); }

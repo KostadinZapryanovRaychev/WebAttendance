@@ -1,0 +1,23 @@
+﻿@model IEnumerable<WebAttendance.Areas.Identity.Data.ApplicationUserRole>
+
+<h1>Всички роли</h1>
+
+<a class="btn btn-primary" asp-action="CreateRole" asp-controller="Administration">Създай роля</a>
+@{
+    foreach (var role in Model)
+    {
+        
+        <div class="card mb-3">
+            <div class="card-header">
+                Role Id: @role.Id
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">@role.Name</h5>
+            </div>
+            <div class="card-footer">
+                <a asp-action="EditRole" asp-controller="Administration" asp-route-id="@role.Id" class="btn btn-primary">Редактиране</a>
+                <a href="#" class="btn btn-danger">Изтриване</a>
+            </div>
+        </div>
+    }
+}
