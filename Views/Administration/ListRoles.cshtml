@@ -16,7 +16,11 @@
             </div>
             <div class="card-footer">
                 <a asp-action="EditRole" asp-controller="Administration" asp-route-id="@role.Id" class="btn btn-primary">Редактиране</a>
-                <a href="#" class="btn btn-danger">Изтриване</a>
+                <form asp-controller="Administration" asp-action="DeleteRole" asp-route-id="@role.Id" method="post" >
+                    <button type="submit"  class="btn btn-danger">Изтриване</button>
+                </form>
+
+              
             </div>
         </div>
     }

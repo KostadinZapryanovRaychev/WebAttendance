@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using WebAttendance.Models.ViewModels;
 
 namespace WebAttendance.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdministrationController : Controller
     {
         private RoleManager<ApplicationUserRole> roleManger;
@@ -38,7 +40,7 @@ namespace WebAttendance.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("LoggedUser", "Attendance");
+                    return RedirectToAction("ListRoles", "Administration");
                 }
 
                 foreach(IdentityError error in result.Errors)
@@ -159,9 +161,40 @@ namespace WebAttendance.Controllers
             return RedirectToAction("EditRole", new { Id = roleId });
             
         }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteRole(string id)
+        {
+            var role = await roleManger.FindByIdAsync(id);
+
+            if(role == null)
+            {
+                return RedirectToAction("ListRoles");
+            } else
+            {
+                var result = await roleManger.DeleteAsync(role);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("ListRoles");
+                }
+                else
+                {
+                    foreach(var error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+
+                    }
+                    return View("ListRoles");
+                }
+            }
+        }
+
         public IActionResult Index()
         {
             return View();
         }
+
+
+
     }
 }
