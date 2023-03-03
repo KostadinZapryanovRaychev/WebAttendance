@@ -4,13 +4,14 @@
 
     <div asp-validation-summary="All">   </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-3">
             <form method="post" asp-controller="Administration" asp-action="CreateRole">
                 <div class="form-group">
-                    <label asp-for="Name"> </label>
-                    <input asp-for="Name" />
+                    <label asp-for="Name" > </label>
+                    <input asp-for="Name" class="form-control" />
+                    <button type="submit" class="btn btn-info">Запис</button>
+                    <a asp-action="ListRoles" class="btn btn-primary">Назад</a>
                 </div>
-                <input type="submit" class="btn btn-info w-75" value="Запис" />
             </form>
         </div>
     </div>

@@ -162,6 +162,20 @@ namespace WebAttendance.Controllers
             
         }
 
+
+        [HttpGet]
+        public async Task<IActionResult> DeleteRoleGet(string id)
+        {
+            var role = await roleManger.FindByIdAsync(id);
+            var model = new EditRoleViewModel
+            {
+                Id = role.Id,
+                Name = role.Name
+            };
+
+            return View(model);
+        }
+
         [HttpPost]
         public async Task<IActionResult> DeleteRole(string id)
         {
