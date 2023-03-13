@@ -207,8 +207,5 @@ namespace WebAttendance.Controllers
         {
             return View();
         }
-
-
-
     }
 }

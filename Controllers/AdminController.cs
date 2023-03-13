@@ -29,33 +29,6 @@ namespace WebAttendance.Controllers
         }
 
 
-        //public ViewResult Create() => View();
-
-        //[HttpPost]
-        //public async Task<IActionResult> Create(ApplicationUser user)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        ApplicationUser appUser = new ApplicationUser
-        //        {
-        //            OfficialName = user.OfficialName,
-        //            UserName = user.UserName,
-        //            Email = user.Email,
-        //            Description = user.Description
-        //        };
-
-        //        IdentityResult result = await userManager.CreateAsync(appUser, user.PasswordHash);
-        //        if (result.Succeeded)
-        //            return RedirectToAction("Index");
-        //        else
-        //        {
-        //            foreach (IdentityError error in result.Errors)
-        //                ModelState.AddModelError("", error.Description);
-        //        }
-        //    }
-        //    return View(user);
-        //}
-
         public async Task<IActionResult> Update(string id)
         {
             var user = await userManager.FindByIdAsync(id);

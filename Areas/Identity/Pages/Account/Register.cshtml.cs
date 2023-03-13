@@ -90,8 +90,11 @@ namespace WebAttendance.Areas.Identity.Pages.Account
                 var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, OfficialName = Input.OfficialName, Description = Input.Description };
 
                 var allowdNames = _repo.ANames();
+                // and no one from all users ( I have to get all users official names ) does not containe this user.Official name
+                var users = _userManager.Users;
+                var userOfficialNames = users.Select(u => u.OfficialName).ToList();
 
-                if (allowdNames.Contains(user.OfficialName))
+                if (allowdNames.Contains(user.OfficialName) && !userOfficialNames.Contains(user.OfficialName))
                 {
                     var result = await _userManager.CreateAsync(user, Input.Password);
                     if (result.Succeeded)
